@@ -1,0 +1,30 @@
+{
+  "name": "over_de_rhein",
+  "version": "1.0.0",
+  "description": "nieuwe applicatie",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leon-4A6C/overDeRhein.git"
+  },
+  "keywords": [
+    "dinges"
+  ],
+  "author": "leon in 't Veld, Amin Zammou",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leon-4A6C/overDeRhein/issues"
+  },
+  "homepage": "https://github.com/leon-4A6C/overDeRhein#readme",
+  "dependencies": {
+    "browser-sync": "^2.18.8",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-connect-php": "^1.0.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-uncss": "^1.0.6"
+  }
+}
