@@ -3,8 +3,9 @@
   <head>
     <meta charset="utf-8">
     <title>groen</title>
+    <link rel="stylesheet" href="/styles/main.css">
   </head>
-  <body>
+  <body class="groenTemplate">
     <header>
       <nav>
         <ul>
@@ -23,5 +24,8 @@
         </ul>
       </nav>
     </header>
+    <main>
+
+    </main>
   </body>
 </html>
