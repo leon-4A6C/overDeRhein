@@ -6,10 +6,21 @@
         list-style-type: none
         margin: 0
         li
+          text-align: center
           display: inline-block
+          border: 0.2em solid black
+          width: 10em
+          position: absolute
+          top: 0
+          &:hover ul
+            display: block
           a
+            padding: 1em
             &:hover
               text-decoration: underline
           ul
+            display: none
             li
+              border: none
+              
               a
