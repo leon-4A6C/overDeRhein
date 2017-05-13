@@ -14,15 +14,15 @@
       <nav>
         <ul>
           <li>
-            <a href="#">bestand</a>
+            <a onclick="window.open('groenTemplate.php');" href="#">bestand</a>
             <ul>
-              <li><a href="#">subMenuItem</a></li>
+              <li><a onclick="window.open('groenTemplate.php');" href="#">subMenuItem</a></li>
             </ul>
           </li>
           <li>
-            <a href="#">info</a>
+            <a onclick="window.open('groenTemplate.php');" href="#">info</a>
             <ul>
-              <li><a href="#">subMenuItem</a></li>
+              <li><a onclick="window.open('groenTemplate.php');" href="#">subMenuItem</a></li>
             </ul>
           </li>
         </ul>
@@ -32,7 +32,7 @@
 
     </main>
     <footer>
-      <button class="exitButton" type="button" name="button">exit</button>
+      <button onclick="window.close();" class="exitButton" type="button" name="button">exit</button>
     </footer>
   </body>
 </html>
