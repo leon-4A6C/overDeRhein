@@ -7,16 +7,20 @@
   </head>
   <body class="groenTemplate">
     <header>
+      <div class="titleBar">
+        <h1 class="logo">Rhein</h1>
+        <h1 class="pageTitle">Hijstabel</h1>
+      </div>
       <nav>
         <ul>
           <li>
-            <a href="#">navItem</a>
+            <a href="#">bestand</a>
             <ul>
               <li><a href="#">subMenuItem</a></li>
             </ul>
           </li>
           <li>
-            <a href="#">navItem</a>
+            <a href="#">info</a>
             <ul>
               <li><a href="#">subMenuItem</a></li>
             </ul>
@@ -27,5 +31,8 @@
     <main>
 
     </main>
+    <footer>
+      <button class="exitButton" type="button" name="button">exit</button>
+    </footer>
   </body>
 </html>
