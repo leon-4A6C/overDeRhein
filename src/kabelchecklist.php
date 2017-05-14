@@ -10,7 +10,7 @@
     <header>
       <div class="titleBar">
         <h1 class="logo">Rhein</h1>
-        <h1 class="pageTitle">Hijstabel</h1>
+        <h1 class="pageTitle">Kabelchecklist</h1>
       </div>
       <nav>
         <ul>

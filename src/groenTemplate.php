@@ -1,9 +1,10 @@
+<?php include 'functions.php'; ?>
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <title>groen</title>
-    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="styles/main.css">
   </head>
   <body class="groenTemplate">
     <header>
