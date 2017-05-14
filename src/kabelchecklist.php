@@ -31,18 +31,28 @@
     </header>
     <main>
       <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-        <select name="opdrachtnummer">
+        <select name="Opdrachtnummer">
           <option value=""></option>
           <?php
-          
-          foreach ($ as $key => $value) {
-            # code...
+          $opdrachtnummers = sqlSelect("83.82.240.2", "amin", "leon", "over_de_rhein", "SELECT Opdrachtnummer FROM Kabelchecklisten_3");
+          foreach ($opdrachtnummers as $key => $value) {
+            echo "<option value=\"$value[Opdrachtnummer]\"";
+            if ($_POST["Opdrachtnummer"] == $key && $_POST["Opdrachtnummer"] != "") {
+              echo " selected ";
+            }
+            echo ">$value[Opdrachtnummer]</option>";
           }
           ?>
+          <input type="submit" name="submit" value="iets">
         </select>
       </form>
       <?php
-      echo twoDimenTable(sqlSelect("83.82.240.2", "amin", "leon", "over_de_rhein", "SELECT * FROM Kabelchecklisten_3"));
+      if (isset($_POST["submit"]) && $_POST["Opdrachtnummer"] != "") {
+        $sql = "SELECT * FROM Kabelchecklisten_3 WHERE Opdrachtnummer = $_POST[Opdrachtnummer]";
+      } else {
+        $sql = "SELECT * FROM Kabelchecklisten_3";
+      }
+      echo twoDimenTable(sqlSelect("83.82.240.2", "amin", "leon", "over_de_rhein", $sql));
       ?>
     </main>
     <footer>
