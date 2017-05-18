@@ -1,4 +1,5 @@
 <?php include 'functions.php'; ?>
+<?php error_reporting(E_ALL & ~E_NOTICE ); ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -37,13 +38,13 @@
                     $opdrachtnummers = sqlSelect("83.82.240.2", "amin", "leon", "over_de_rhein", "SELECT Opdrachtnummer FROM Hijstesten2");
                     foreach ($opdrachtnummers as $key => $value) {
                         echo "<option value=\"$value[Opdrachtnummer]\"";
-                        if ($_POST["Opdrachtnummer"] == $key && $_POST["Opdrachtnummer"] != "") {
+                        if ($_POST["Opdrachtnummer"] == $value["Opdrachtnummer"] && $_POST["Opdrachtnummer"] != "") {
                             echo " selected ";
                         }
                         echo ">$value[Opdrachtnummer]</option>";
                     }
                     ?>
-                    <input type="submit" name="submit" value="iets">
+                    <input type="submit" name="submit" value="klik">
                 </select>
             </form>
             <?php
