@@ -1,4 +1,5 @@
 <?php include 'functions.php'; ?>
+<?php error_reporting(E_ALL & ~E_NOTICE ); ?>
 <!DOCTYPE html>
 <html>
   <head>
