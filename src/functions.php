@@ -182,4 +182,54 @@ function check($var, $int) {
   }
   return $var;
 }
+class MysqliWrapper {
+  private $conn;
+  function __construct($host, $username, $password, $db) {
+    $this->conn = new mysqli($host, $username, $password, $db);
+    if ($this->conn->connect_error) {
+      die ("Connection failed: " . $this->conn->connect_error);
+    }
+  }
+  public function select($sql) {
+    $output = [];
+    $result = $this->conn->query($sql);
+    if ($result->num_rows > 0) {
+      // output data of each row
+      while($row = $result->fetch_assoc()) {
+        $output[] = $row;
+      }
+    } else {
+      $output[] = ["0 results"];
+    }
+    return $output;
+  }
+  public function send($sql) {
+    $res = $this->conn->query($sql);
+    if ($res) {
+      return true;
+    } else {
+      return $this->conn->error;
+    }
+  }
+  public function table($sql) {
+    $array = $this->select($sql);
+    $table = "<table border='1'><thead><tr>";
+    foreach ($array[0] as $key => $value) {
+      $table .= "<th>$key</th>";
+    }
+    $table .= "</tr></thead><tbody>";
+    foreach ($array as $key => $value) {
+      $table .= "<tr>";
+      foreach ($value as $key1 => $value1) {
+        $table .= "<td>$value1</td>";
+      }
+      $table .= "</tr>";
+    }
+    $table .= "</tbody></table>";
+    return $table;
+  }
+  public function close() {
+    $this->conn->close();
+  }
+}
 ?>
