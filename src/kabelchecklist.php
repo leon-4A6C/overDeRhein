@@ -30,9 +30,9 @@
       </nav>
     </header>
     <main>
-      <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-        <select name="Opdrachtnummer">
-          <option value=""></option>
+      <form id="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+        <select onchange="document.getElementById('form').submit();" name="Opdrachtnummer">
+          <option value="">alles</option>
           <?php
           $opdrachtnummers = sqlSelect("83.82.240.2", "amin", "leon", "over_de_rhein", "SELECT Opdrachtnummer FROM Kabelchecklisten_3");
           foreach ($opdrachtnummers as $key => $value) {
@@ -43,11 +43,10 @@
             echo ">$value[Opdrachtnummer]</option>";
           }
           ?>
-          <input type="submit" name="submit" value="iets">
         </select>
       </form>
       <?php
-      if (isset($_POST["submit"]) && $_POST["Opdrachtnummer"] != "") {
+      if ($_POST["Opdrachtnummer"] != "") {
         $sql = "SELECT * FROM Kabelchecklisten_3 WHERE Opdrachtnummer = $_POST[Opdrachtnummer]";
       } else {
         $sql = "SELECT * FROM Kabelchecklisten_3";
