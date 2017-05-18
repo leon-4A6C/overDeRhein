@@ -38,7 +38,7 @@
           $opdrachtnummers = sqlSelect("83.82.240.2", "amin", "leon", "over_de_rhein", "SELECT Opdrachtnummer FROM Kabelchecklisten_3");
           foreach ($opdrachtnummers as $key => $value) {
             echo "<option value=\"$value[Opdrachtnummer]\"";
-            if ($_POST["Opdrachtnummer"] == $key && $_POST["Opdrachtnummer"] != "") {
+            if ($_POST["Opdrachtnummer"] == $value["Opdrachtnummer"] && $_POST["Opdrachtnummer"] != "") {
               echo " selected ";
             }
             echo ">$value[Opdrachtnummer]</option>";
