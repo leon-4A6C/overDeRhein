@@ -48,9 +48,9 @@
         </select>
       </form>
       <?php
-      $sql = " WHERE Opdrachtnummer = $_POST[Opdrachtnummer]";
+      $sql = "SELECT * FROM Kabelchecklisten_3";
       if ($_POST["Opdrachtnummer"] != "") {
-        $sql .= "SELECT * FROM Kabelchecklisten_3";
+        $sql .= " WHERE Opdrachtnummer = $_POST[Opdrachtnummer]";
       }
       echo $mysql->table($sql);
       $sql = "SELECT * FROM Opdrachten_1";
