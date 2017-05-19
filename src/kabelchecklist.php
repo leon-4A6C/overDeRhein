@@ -32,7 +32,7 @@
     </header>
     <main>
       <form id="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-        <select onchange="document.getElementById('form').submit();" name="Opdrachtnummer">
+        selecteer een opdrachtnummer: <select onchange="document.getElementById('form').submit();" name="Opdrachtnummer">
           <option value="">alles</option>
           <?php
           $opdrachtnummers = sqlSelect("83.82.240.2", "amin", "leon", "over_de_rhein", "SELECT Opdrachtnummer FROM Kabelchecklisten_3");
