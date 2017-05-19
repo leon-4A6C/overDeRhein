@@ -1,5 +1,6 @@
 <?php include 'functions.php'; ?>
 <?php error_reporting(E_ALL & ~E_NOTICE ); ?>
+<?php $mysql = new MysqliWrapper("83.82.240.2", "amin", "leon", "over_de_rhein"); ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -32,10 +33,10 @@
         </header>
         <main>
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-                <select name="Opdrachtnummer">
+                selecteer een opdrachtnummer: <select onchange="document.getElementById('form').submit();" name="Opdrachtnummer">
                     <option value=""></option>
                     <?php
-                    $opdrachtnummers = sqlSelect("83.82.240.2", "amin", "leon", "over_de_rhein", "SELECT Opdrachtnummer FROM Hijstesten2");
+                      $opdrachtnummers = $mysql->select("SELECT Opdrachtnummer FROM Hijstesten2");
                     foreach ($opdrachtnummers as $key => $value) {
                         echo "<option value=\"$value[Opdrachtnummer]\"";
                         if ($_POST["Opdrachtnummer"] == $value["Opdrachtnummer"] && $_POST["Opdrachtnummer"] != "") {
@@ -48,12 +49,16 @@
                 </select>
             </form>
             <?php
-            if (isset($_POST["submit"]) && $_POST["Opdrachtnummer"] != "") {
-                $sql = "SELECT * FROM Hijstesten2 WHERE Opdrachtnummer = $_POST[Opdrachtnummer]";
-            } else {
-                $sql = "SELECT * FROM Hijstesten2";
-            }
-            echo twoDimenTable(sqlSelect("83.82.240.2", "amin", "leon", "over_de_rhein", $sql));
+                      $sql = " WHERE Opdrachtnummer = $_POST[Opdrachtnummer]";
+                if ($_POST["Opdrachtnummer"] != "") {
+                  $sql .= "SELECT * FROM Hijstesten2";
+                }
+                echo $mysql->table($sql);
+                $sql = "SELECT * FROM Opdrachten_1";
+                if ($_POST["Opdrachtnummer"] != "") {
+                  $sql .= " WHERE Opdrachtnummer = $_POST[Opdrachtnummer]";
+                }
+                echo $mysql->table($sql);
             ?>
         </main>
         <footer>
@@ -61,3 +66,4 @@
         </footer>
     </body>
 </html>
+<?php $mysql->close(); ?>
