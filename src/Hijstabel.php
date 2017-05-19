@@ -49,21 +49,21 @@
                 </select>
             </form>
             <?php
-                      $sql = " WHERE Opdrachtnummer = $_POST[Opdrachtnummer]";
-                if ($_POST["Opdrachtnummer"] != "") {
-                  $sql .= "SELECT * FROM Hijstesten2";
-                }
-                echo $mysql->table($sql);
-                $sql = "SELECT * FROM Opdrachten_1";
-                if ($_POST["Opdrachtnummer"] != "") {
-                  $sql .= " WHERE Opdrachtnummer = $_POST[Opdrachtnummer]";
-                }
-                echo $mysql->table($sql);
+            $sql = "SELECT * FROM Hijstesten2";
+            if ($_POST["Opdrachtnummer"] != "") {
+              $sql .= " WHERE Opdrachtnummer = $_POST[Opdrachtnummer]";
+            }
+            echo $mysql->table($sql);
+            $sql = "SELECT * FROM Opdrachten_1";
+            if ($_POST["Opdrachtnummer"] != "") {
+              $sql .= " WHERE Opdrachtnummer = $_POST[Opdrachtnummer]";
+            }
+            echo $mysql->table($sql);
             ?>
-        </main>
-        <footer>
-            <button onclick="window.close();" class="exitButton" type="button" name="button">exit</button>
-        </footer>
-    </body>
-</html>
+  </main>
+  <footer>
+    <button onclick="window.close();" class="exitButton" type="button" name="button">exit</button>
+  </footer>
+  </body>
+  </html>
 <?php $mysql->close(); ?>
