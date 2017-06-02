@@ -212,7 +212,11 @@ class MysqliWrapper {
     }
   }
   public function table($sql) {
-    $array = $this->select($sql);
+    if (gettype($sql) == "string") {
+      $array = $this->select($sql);
+    } else {
+      $array = $sql;
+    }
     $table = "<table border='1'><thead><tr>";
     foreach ($array[0] as $key => $value) {
       $table .= "<th>$key</th>";
