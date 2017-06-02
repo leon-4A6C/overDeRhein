@@ -28,6 +28,12 @@
               <li><a onclick="window.open('groenTemplate.php');" href="#">subMenuItem</a></li>
             </ul>
           </li>
+          <li>
+            <a onclick="window.open('kabelchecklist.php');" href="#">kabelchecklist</a>
+          </li>
+          <li>
+            <a onclick="window.open('Hijstabel.php');" href="#">hijstabel</a>
+          </li>
         </ul>
       </nav>
     </header>
